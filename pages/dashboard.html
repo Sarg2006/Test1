@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row row-centered">
+        <div class="col-lg-12">
+            <ul class="list-group" ng-show="!showAdd">
+                <li class="list-group-item" ng-repeat="(key,pass) in passwords">
+                    <span ng-show="!pass.showUnreveal && !pass.edit">{{pass.unreveald}}</span>
+                    <span ng-show="pass.showUnreveal && !pass.edit">{{pass.password}}</span>
+                    <i ng-show="!pass.showUnreveal && !pass.edit" ng-click="pass.showUnreveal = !pass.showUnreveal;" class="fa fa-eye" aria-hidden="true"></i>
+                    <i ng-show="pass.showUnreveal && !pass.edit" ng-click="pass.showUnreveal = !pass.showUnreveal;" class="fa fa-eye-slash" aria-hidden="true"></i>
+                    <i ng-show="!pass.edit" ng-click="showEditFunc(pass)" class="fa fa-pencil" aria-hidden="true"></i>
+                    <i ng-show="!pass.edit" ng-click="deletePass(pass, key)" class="fa fa-times" aria-hidden="true"></i>
+                    <a ng-href="{{pass.url}}" target="_blank" ng-click="$event.stopPropagation()" class="pull-right">{{pass.url}}</a>
+                    <div ng-show="pass.edit" class="form-group">
+                        <input ng-model="pass.password" type="text" ng-model="pass.password" value="{{pass.password}}" class="form-control" title="Please enter you password">
+                        <button ng-click="saveEdit(pass)" class="btn btn-success save-edit">Save</button>
+                    </div>
+                </li>
+            </ul>
+            <button ng-show="!showAdd" ng-click="showAdd = !showAdd" type="submit" class="btn btn-success btn-block">Add password</button>
+            <button ng-show="showAdd" ng-click="showAdd = !showAdd" type="submit" class="btn btn-success btn-danger">Return</button>
+            <form ng-show="showAdd" name="addPasswordForm">
+                <div class="form-group">
+                    <label for="password" class="control-label">Password</label>
+                    <input ng-model="addPasswordObj.password" type="password" class="form-control" id="password" name="password" required title="Please enter you password">
+                </div>
+                <div class="form-group">
+                    <label for="url" class="control-label">Site URL</label>
+                    <input ng-model="addPasswordObj.url" type="url" class="form-control" id="url" name="url" required title="Please enter url of site">
+                </div>
+                <div ng-show="loginError && buttonClicked" class="alert alert-danger">Wrong username or password</div>
+                <button type="submit" ng-click="addPassword()" class="btn btn-success btn-block">Add</button>
+            </form>
+        </div>
+    </div>
+</div>

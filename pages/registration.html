@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row row-centered">
+        <div class="col-lg-12">
+            <div class="well">
+                <form name="registrationForm">
+                    <div class="form-group">
+                        <label for="username" class="control-label">Username</label>
+                        <input ng-model="registerObj.name" type="text" class="form-control" id="username" name="username" title="Please enter you username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label">Password</label>
+                        <input ng-model="registerObj.password" required type="password" class="form-control" id="password" name="password" title="Please enter your password">
+                    </div>
+                    <div class="form-group">
+                        <label for="password2" class="control-label">Repeat password</label>
+                        <input ng-model="registerObj.password2" required type="password" class="form-control" id="password2" name="password2" title="Please enter your password">
+                    </div>
+                    <div ng-show="(registerObj.password != registerObj.password2) && buttonClicked" class="alert alert-danger">Wrong username or password</div>
+                    <div ng-show="nameError && buttonClicked" class="alert alert-danger">Username already in use</div>
+                    <button ng-click="submitRegistration()" type="submit" class="btn btn-success btn-block">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
