@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 
-<!-- define angular app -->
 <html ng-app="mainApp">
 
 <head>
-  <!-- SCROLLS -->
   <link rel="stylesheet" href="lib/CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="dist/main.css" />
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
 
-  <!-- SPELLS -->
   <script src="lib/angular.min.js"></script>
   <script src="lib/angular-route.min.js"></script>
   <script src="dist/main.js"></script>
 </head>
 
-<!-- define angular controller -->
 <body ng-controller="mainController">
 
   <nav class="navbar navbar-default">
@@ -33,9 +29,7 @@
   </nav>
 
   <div id="main">
-  
-    <!-- angular templating -->
-		<!-- this is where content will be injected -->
+
     <div ng-view></div>
     
   </div>
