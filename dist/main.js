@@ -25,7 +25,7 @@ mainApp.config(function($routeProvider) {
             title: 'Registration'
         });
 });
-mainApp.controller('dashboardController', function($scope, $rootScope, $localStorage) {
+mainApp.controller('dashboardController', function($scope, $rootScope, $localStorage, $location) {
     $scope.showAdd = false;
     $scope.showEdit = false;
     setTimeout(function(){
@@ -50,7 +50,7 @@ mainApp.controller('dashboardController', function($scope, $rootScope, $localSto
         });
     };
     $scope.logged = $localStorage.getObj('logged');
-    if($scope.logged){
+    if(!$scope.logged){
         $location.path("/registration");
     }
     $scope.addPasswordObj ={
