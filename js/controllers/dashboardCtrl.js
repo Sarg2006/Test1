@@ -35,8 +35,8 @@ mainApp.controller('dashboardController', function($scope, $rootScope, $localSto
             angular.forEach($rootScope.registredUsers,function(resp,key){
                 if(resp.name == $scope.logged){
                     var size = 0;
-                    console.log(resp);
                     for (key in resp.passwords) {
+                        size = key;
                         if (resp.passwords.hasOwnProperty(key)) size++;
                     }
                     resp.passwords[size] = {
@@ -45,6 +45,7 @@ mainApp.controller('dashboardController', function($scope, $rootScope, $localSto
                     };
                     //$scope.passwords = resp.passwords;
                     $scope.updatePasswords();
+                    console.log($rootScope.registredUsers);
                     $localStorage.setObj('registredUsers', $rootScope.registredUsers);
                     $scope.showAdd = false;
                     $scope.addPasswordObj ={
